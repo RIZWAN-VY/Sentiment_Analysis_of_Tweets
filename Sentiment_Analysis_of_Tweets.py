@@ -23,3 +23,26 @@ def tweets_cleaning(text):
     text = re.sub(r'[^\w\s]', '', text)     # Remove special characters and numbers
     text = text.lower()     # Convert to lowercase for accurate sentiment analysis
     return text
+
+# 1, Function to Calculates and prints the total count of each sentiment
+def sentiment_count(Tweets):
+    print("\nprinting sentiment count of tweets based on your keyword..........")
+    sleep(3)
+    positive_count = 0
+    negative_count = 0
+    neutral_count = 0
+    for twt in Tweets:
+        tweet =  twt.text 
+        cleaned_tweet = tweets_cleaning(tweet)
+        analysis = TextBlob(cleaned_tweet)
+        if analysis.sentiment.polarity > 0:
+            positive_count += 1
+        elif analysis.sentiment.polarity < 0:
+            negative_count += 1
+        else:
+            neutral_count += 1
+    total_count = positive_count + negative_count + neutral_count
+    print("Total Positive Tweets:", positive_count)
+    print("Total Negative Tweets:", negative_count)
+    print("Total Neutral Tweets:", neutral_count)
+    print("Total Tweets:",total_count)
