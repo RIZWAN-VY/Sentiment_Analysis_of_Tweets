@@ -25,13 +25,13 @@ def tweets_cleaning(text):
     return text
 
 # 1) Function to Calculates and prints the total count of each sentiment of tweets
-def sentiment_count(Tweets):
+def sentiment_count(tweets):
     print("\nprinting sentiment count of tweets based on your keyword..........")
     sleep(3)
     positive_count = 0
     negative_count = 0
     neutral_count = 0
-    for twt in Tweets:
+    for twt in tweets:
         tweet =  twt.text 
         cleaned_tweet = tweets_cleaning(tweet)
         analysis = TextBlob(cleaned_tweet)
@@ -48,13 +48,13 @@ def sentiment_count(Tweets):
     print("Total Tweets:",total_count)
 
 # 2) Function to print all tweets with sentiment and total count
-def All_Tweets(Tweets):
+def All_Tweets(tweets):
     print("\nprinting all tweets with sentiment and total count based on your keyword..........")
     sleep(3)
     total_count = 0
     i = 1
 
-    for twt in Tweets:
+    for twt in tweets:
         tweet =  twt.text 
 
         # Preprocess the tweet text
@@ -77,3 +77,15 @@ def All_Tweets(Tweets):
         total_count += 1
         i += 1
     print("Total Tweets:",total_count)
+
+# Function to analyze sentiment of tweets
+def analyze_sentiment(tweet_text):
+    cleaned_tweet = tweets_cleaning(tweet_text)
+    analysis = TextBlob(cleaned_tweet)
+    
+    if analysis.sentiment.polarity > 0:
+        return "positive"
+    elif analysis.sentiment.polarity < 0:
+        return "negative"
+    else:
+        return "neutral"
