@@ -13,9 +13,17 @@ from time import sleep
 from API_keys_Tokens import API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 
 # Authenticate and create the Tweepy API object
-authenticate = tweepy.OAuthHandler(API_KEY,API_KEY_SECRET)
-authenticate.set_access_token(ACCESS_TOKEN,ACCESS_TOKEN_SECRET)
-API = tweepy.API(authenticate)
+try:
+    # Code that may cause an error
+    authenticate = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
+    authenticate.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+    api = tweepy.API(authenticate)
+
+except tweepy.error.TweepError:
+    print("Error connecting to Twitter API")
+
+else:
+    print("Successfully connected to Twitter API")
 
 # Function to clean tweets from unwanted elements
 def tweets_cleaning(text):
