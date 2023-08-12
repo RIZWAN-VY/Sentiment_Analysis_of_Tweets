@@ -117,3 +117,15 @@ def analyze_tweets_by_sentiment(Tweets, desired_sentiment):
             print("----------------------------------------")
         i += 1
     print(f"Total {desired_sentiment.capitalize()} Tweets:", count)
+
+#  3) Positive_Tweets   
+def Positive_Tweets(Tweets):
+    analyze_tweets_by_sentiment(Tweets, "positive")
+
+#  4) Negative_Tweets
+def Negative_Tweets(Tweets):
+    analyze_tweets_by_sentiment(Tweets, "negative")
+
+#  5)  Neutral_Tweets
+def Neutral_Tweets(Tweets):
+    analyze_tweets_by_sentiment(Tweets, "neutral")
