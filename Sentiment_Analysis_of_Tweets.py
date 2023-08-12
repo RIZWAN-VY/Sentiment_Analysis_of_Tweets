@@ -97,3 +97,23 @@ def analyze_sentiment(tweet_text):
         return "negative"
     else:
         return "neutral"
+    
+#  Function to analyze tweets based on desired sentiment
+def analyze_tweets_by_sentiment(Tweets, desired_sentiment):
+    print(f"\nPrinting {desired_sentiment} tweets and its count based on your keyword..........")
+    sleep(3)
+    count = 0
+    i = 1
+    
+    for twt in Tweets:
+        tweet = twt.text
+        cleaned_tweet = tweets_cleaning(tweet)
+        sentiment = analyze_sentiment(cleaned_tweet)
+        
+        if sentiment == desired_sentiment:
+            print(str(i) + ") " + cleaned_tweet + "\n")
+            print(f"This is a {desired_sentiment} tweet")
+            count += 1
+            print("----------------------------------------")
+        i += 1
+    print(f"Total {desired_sentiment.capitalize()} Tweets:", count)
