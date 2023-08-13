@@ -129,3 +129,30 @@ def Negative_Tweets(Tweets):
 #  5)  Neutral_Tweets
 def Neutral_Tweets(Tweets):
     analyze_tweets_by_sentiment(Tweets, "neutral")
+
+# 6) Function to generates a bar chart to visualize sentiment distribution
+def sentiment_chart(Tweets):
+    print("\nGenerating Sentiment chart......................")
+    sleep(3)
+    positive_count = 0
+    negative_count = 0
+    neutral_count = 0    
+    for twt in Tweets:
+        tweet =  twt.text 
+        cleaned_tweet = tweets_cleaning(tweet)
+        analysis = TextBlob(cleaned_tweet)
+        if analysis.sentiment.polarity > 0:
+            positive_count += 1
+        elif analysis.sentiment.polarity < 0:
+            negative_count += 1
+        else:
+            neutral_count += 1
+            
+    # Visualization (Create a bar chart) of Positive,Negative and Neutral Tweets
+    sentiment_labels = ['Positive','Neutral','Negative']
+    sentiment_counts = [positive_count,neutral_count,negative_count]
+    plt.bar(sentiment_labels, sentiment_counts, color=['green', 'blue' , 'red'])
+    plt.xlabel('Sentiment')
+    plt.ylabel('Count')
+    plt.title('Sentiment Analysis of Tweets')
+    plt.show()
