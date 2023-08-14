@@ -156,3 +156,21 @@ def sentiment_chart(Tweets):
     plt.ylabel('Count')
     plt.title('Sentiment Analysis of Tweets')
     plt.show()
+
+# 7) Function to generates a Word Cloud - visualize frequently occurring words 
+def wordcloud(Tweets):
+    print("\nGenerating Wordcloud......................")
+    sleep(3)
+    all_tweets_text = ''        # Initialize an empty string to store all cleaned tweets
+    for twt in Tweets:
+        tweet =  twt.text 
+        cleaned_tweet = tweets_cleaning(tweet)
+        all_tweets_text += cleaned_tweet + ' '    # Concatenate cleaned tweets with a space in between
+
+    wordcloud = WordCloud(width=800,height=400,background_color='white').generate(all_tweets_text)
+
+    # Display the word cloud
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.show()
