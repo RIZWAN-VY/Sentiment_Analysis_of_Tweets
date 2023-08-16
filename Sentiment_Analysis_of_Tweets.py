@@ -174,3 +174,43 @@ def wordcloud(Tweets):
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
     plt.show()
+
+# Function for user interaction user can select which task to perform
+def user_interaction(Tweets):
+    while True:
+        print("\nSelect a task:")
+        print("1. Sentiment Count")
+        print("2. Analyze All Tweets")
+        print("3. Analyze Positive Tweets")
+        print("4. Analyze Negative Tweets")
+        print("5. Analyze Neutral Tweets")
+        print("6. Generate Sentiment Chart")
+        print("7. Generate Wordcloud")
+        print("8. Exit")
+
+        task_number = input("\nEnter the number of the task you want to perform: ")
+
+        if task_number == '1':
+            sentiment_count(Tweets)
+        elif task_number == '2':
+            All_Tweets(Tweets)
+        elif task_number == '3':
+            Positive_Tweets(Tweets)
+        elif task_number == '4':
+            Negative_Tweets(Tweets)
+        elif task_number == '5':
+            Neutral_Tweets(Tweets)
+        elif task_number == '6':
+            sentiment_chart(Tweets)
+        elif task_number == '7':
+            wordcloud(Tweets)
+        elif task_number == '8':
+            print("\nExiting...\nGoodbye")
+            break  # Exit the loop
+        else:
+            print("\nInvalid input. Please enter a valid task number.")
+
+        another_task = input("\nDo you want to perform another task? (y/n): ")
+        if another_task.lower() != "y":
+            print("\nExiting...\nGoodbye")
+            break  # Exit the loop
