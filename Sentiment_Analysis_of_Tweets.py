@@ -214,3 +214,13 @@ def user_interaction(Tweets):
         if another_task.lower() != "y":
             print("\nExiting...\nGoodbye")
             break  # Exit the loop
+
+# Main function to do Sentiment Analysis of Tweets
+def twitter_sentiment_analysis():
+    print("\nWelcome to Twitter Sentiment Analysis!")
+
+     # Extract tweets based on a keyword and perform sentiment analysis
+    keyword = input('\nEnter a keyword for sentiment analysis of tweets : ') 
+    Tweets = api.search_tweets(keyword,count=100,lang = 'en')
+    Tweets = list(set(Tweets))   # Remove duplicate tweets
+
