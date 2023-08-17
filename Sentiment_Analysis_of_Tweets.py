@@ -20,10 +20,10 @@ try:
     api = tweepy.API(authenticate)
 
 except tweepy.error.TweepError:
-    print("Error connecting to Twitter API")
+    print("\nError connecting to Twitter API")
 
 else:
-    print("Successfully connected to Twitter API")
+    print("\nSuccessfully connected to Twitter API")
 
 # Function to clean tweets from unwanted elements
 def tweets_cleaning(text):
@@ -99,13 +99,13 @@ def analyze_sentiment(tweet_text):
         return "neutral"
     
 #  Function to analyze tweets based on desired sentiment
-def analyze_tweets_by_sentiment(Tweets, desired_sentiment):
+def analyze_tweets_by_sentiment(tweets, desired_sentiment):
     print(f"\nPrinting {desired_sentiment} tweets and its count based on your keyword..........")
     sleep(3)
     count = 0
     i = 1
     
-    for twt in Tweets:
+    for twt in tweets:
         tweet = twt.text
         cleaned_tweet = tweets_cleaning(tweet)
         sentiment = analyze_sentiment(cleaned_tweet)
@@ -119,25 +119,25 @@ def analyze_tweets_by_sentiment(Tweets, desired_sentiment):
     print(f"Total {desired_sentiment.capitalize()} Tweets:", count)
 
 #  3) Positive_Tweets   
-def Positive_Tweets(Tweets):
-    analyze_tweets_by_sentiment(Tweets, "positive")
+def Positive_Tweets(tweets):
+    analyze_tweets_by_sentiment(tweets, "positive")
 
 #  4) Negative_Tweets
-def Negative_Tweets(Tweets):
-    analyze_tweets_by_sentiment(Tweets, "negative")
+def Negative_Tweets(tweets):
+    analyze_tweets_by_sentiment(tweets, "negative")
 
 #  5)  Neutral_Tweets
-def Neutral_Tweets(Tweets):
-    analyze_tweets_by_sentiment(Tweets, "neutral")
+def Neutral_Tweets(tweets):
+    analyze_tweets_by_sentiment(tweets, "neutral")
 
 # 6) Function to generates a bar chart to visualize sentiment distribution
-def sentiment_chart(Tweets):
+def sentiment_chart(tweets):
     print("\nGenerating Sentiment chart......................")
     sleep(3)
     positive_count = 0
     negative_count = 0
     neutral_count = 0    
-    for twt in Tweets:
+    for twt in tweets:
         tweet =  twt.text 
         cleaned_tweet = tweets_cleaning(tweet)
         analysis = TextBlob(cleaned_tweet)
@@ -158,11 +158,11 @@ def sentiment_chart(Tweets):
     plt.show()
 
 # 7) Function to generates a Word Cloud - visualize frequently occurring words 
-def wordcloud(Tweets):
+def wordcloud(tweets):
     print("\nGenerating Wordcloud......................")
     sleep(3)
     all_tweets_text = ''        # Initialize an empty string to store all cleaned tweets
-    for twt in Tweets:
+    for twt in tweets:
         tweet =  twt.text 
         cleaned_tweet = tweets_cleaning(tweet)
         all_tweets_text += cleaned_tweet + ' '    # Concatenate cleaned tweets with a space in between
@@ -176,7 +176,7 @@ def wordcloud(Tweets):
     plt.show()
 
 # Function for user interaction user can select which task to perform
-def user_interaction(Tweets):
+def user_interaction(tweets):
     while True:
         print("\nSelect a task:")
         print("1. Sentiment Count")
@@ -191,19 +191,19 @@ def user_interaction(Tweets):
         task_number = input("\nEnter the number of the task you want to perform: ")
 
         if task_number == '1':
-            sentiment_count(Tweets)
+            sentiment_count(tweets)
         elif task_number == '2':
-            All_Tweets(Tweets)
+            All_Tweets(tweets)
         elif task_number == '3':
-            Positive_Tweets(Tweets)
+            Positive_Tweets(tweets)
         elif task_number == '4':
-            Negative_Tweets(Tweets)
+            Negative_Tweets(tweets)
         elif task_number == '5':
-            Neutral_Tweets(Tweets)
+            Neutral_Tweets(tweets)
         elif task_number == '6':
-            sentiment_chart(Tweets)
+            sentiment_chart(tweets)
         elif task_number == '7':
-            wordcloud(Tweets)
+            wordcloud(tweets)
         elif task_number == '8':
             print("\nExiting...\nGoodbye")
             break  # Exit the loop
@@ -222,5 +222,9 @@ def twitter_sentiment_analysis():
      # Extract tweets based on a keyword and perform sentiment analysis
     keyword = input('\nEnter a keyword for sentiment analysis of tweets : ') 
     Tweets = api.search_tweets(keyword,count=100,lang = 'en')
-    Tweets = list(set(Tweets))   # Remove duplicate tweets
+    tweets = list(set(Tweets))   # Remove duplicate tweets
 
+    user_interaction(tweets)
+
+# Start the Twitter Sentiment Analysis program
+twitter_sentiment_analysis()
