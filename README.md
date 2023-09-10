@@ -16,3 +16,10 @@ The primary goal of this project is to provide insights into public sentiment re
 * __Data Visualization:__ The project includes data visualization to make the analysis more accessible. It generates bar charts to display sentiment distribution and word clouds to showcase frequently occurring words related to the keyword.
 
 * __User Interaction:__ The project offers an interactive experience for exploring sentiment-related insights. Users can input their desired keyword, and the script will fetch and analyze Twitter data accordingly. 
+
+#### Skills Utilized
+Python: The project is implemented in Python, leveraging its versatility for data analysis and visualization.
+
+Tweepy API: Tweepy is used to interact with the Twitter API, allowing the extraction of relevant tweets.
+
+TextBlob: TextBlob is employed for sentiment analysis, simplifying the process of categorizing tweets into positive, negative, or neutral sentiments.
