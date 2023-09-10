@@ -12,3 +12,7 @@ The primary goal of this project is to provide insights into public sentiment re
 * __Data Preprocessing :__ Before sentiment analysis, the tweet data is cleaned and preprocessed. This includes removing URLs, special characters, and converting text to lowercase to ensure accurate sentiment analysis.
 
 * __Sentiment Analysis :__ Sentiment analysis is performed using TextBlob. Tweets are categorized into positive, negative, or neutral sentiments based on polarity scores.
+
+* __Data Visualization:__ The project includes data visualization to make the analysis more accessible. It generates bar charts to display sentiment distribution and word clouds to showcase frequently occurring words related to the keyword.
+
+* __User Interaction:__ The project offers an interactive experience for exploring sentiment-related insights. Users can input their desired keyword, and the script will fetch and analyze Twitter data accordingly. 
