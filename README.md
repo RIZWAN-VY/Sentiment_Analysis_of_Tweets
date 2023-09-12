@@ -20,3 +20,4 @@ The primary goal of this project is to provide insights into public sentiment re
 * __TextBlob:__ TextBlob is employed for sentiment analysis, simplifying the process of categorizing tweets into positive, negative, or neutral sentiments.
 * __Data Preprocessing:__ Data preprocessing techniques are applied to clean and prepare the tweet data for analysis.
 * __Sentiment Analysis:__ The project showcases how to perform sentiment analysis using TextBlob's polarity scores.
+* __Data Visualization:__ Visualizations like bar charts and word clouds are created to present the results visually.
