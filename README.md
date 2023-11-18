@@ -25,3 +25,6 @@ The primary goal of this project is to provide insights into public sentiment re
 ## Sentiment Analysis - Bar chart :
 ![Bar_Graph](https://github.com/RIZWAN-VY/Sentiment_Analysis_of_Tweets/assets/131337205/5227a9a3-dd22-4617-8b92-1859a6c61bbd)
 
+## Word Cloud :
+![DataScience_wordcloud](https://github.com/RIZWAN-VY/Sentiment_Analysis_of_Tweets/assets/131337205/5db6cd6c-98f7-4635-a482-3ad3a276d823)
+ord Cloud Generated :
