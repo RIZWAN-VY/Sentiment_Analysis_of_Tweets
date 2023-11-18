@@ -21,3 +21,7 @@ The primary goal of this project is to provide insights into public sentiment re
 * __Data Preprocessing:__ Data preprocessing techniques are applied to clean and prepare the tweet data for analysis.
 * __Sentiment Analysis:__ The project showcases how to perform sentiment analysis using TextBlob's polarity scores.
 * __Data Visualization:__ Visualizations like bar charts and word clouds are created to present the results visually.
+
+## Sentiment Analysis - Bar chart :
+![Bar_Graph](https://github.com/RIZWAN-VY/Sentiment_Analysis_of_Tweets/assets/131337205/5227a9a3-dd22-4617-8b92-1859a6c61bbd)
+
